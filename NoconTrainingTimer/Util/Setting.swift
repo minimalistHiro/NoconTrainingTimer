@@ -24,4 +24,6 @@ final class Setting {
     let countSound: String = "CountSound"                   // カウント音
     let readyCountSound: String = "ReadyCountSound"         // スタート準備時カウント音
     let startCountSound: String = "StartCountSound"         // スタート時カウント音
+    let workoutSound: String = "Workout"                    // トレーニング開始音
+    let intervalSound: String = "Interval"                  // 休憩開始音
 }

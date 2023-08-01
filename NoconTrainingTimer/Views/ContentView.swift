@@ -13,6 +13,8 @@ struct ContentView: View {
     let countSounds = Sounds()              // カウント音用インスタンス
     let readyCountSounds = Sounds()         // スタート準備時カウント音用インスタンス
     let startCountSounds = Sounds()         // スタート時カウント音用インスタンス
+    let workoutSounds = Sounds()            // トレーニング開始音用インスタンス
+    let intervalSounds = Sounds()           // 休憩開始音用インスタンス
     @ObservedObject var timerRun = TimerRun.shared
     
     // DB保存用セッテングパラメータ
@@ -71,6 +73,15 @@ struct ContentView: View {
                 // スタート時カウント音
                 startCountSounds.fileName = setting.startCountSound
                 startCountSounds.playSound()
+            }
+            if timerRun.paramaterMode == .workout {
+                // トレーニング開始音
+                workoutSounds.fileName = setting.workoutSound
+                workoutSounds.playSound()
+            } else if timerRun.paramaterMode == .interval {
+                // 休憩開始音
+                intervalSounds.fileName = setting.intervalSound
+                intervalSounds.playSound()
             }
         }
         .tint(setting.able)
